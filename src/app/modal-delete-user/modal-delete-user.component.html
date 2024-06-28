@@ -1,0 +1,7 @@
+<app-modal id="add-user-modal" #modalRef [noBtn]="true">
+  <h3 class="text-lg font-bold mb-2">Êtes vous sür de vouloir supprimer le patient {{ patientName }} ?</h3>
+  <div class="modal-action">
+      <button class="btn rounded-md" (click)="handleCloseModalClick()">Annuler</button>
+      <button class="btn btn-primary rounded-md" (click)="deletePatient()">Valider</button>
+  </div>
+</app-modal>

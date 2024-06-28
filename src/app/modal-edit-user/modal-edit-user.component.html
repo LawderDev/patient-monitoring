@@ -1,0 +1,23 @@
+<app-modal id="add-user-modal" #modalRef [noBtn]="true">
+  <form [formGroup]="editPatientForm">
+  <h3 class="text-lg font-bold mb-2">Ajouter un patient</h3>
+    <div class="flex flex-col gap-2">
+      <label class="input input-bordered flex items-center gap-2 rounded-md">
+        Nom
+        <input type="text" class="grow" placeholder="Nom" formControlName="name" />
+      </label>
+      <label class="input input-bordered flex items-center gap-2 rounded-md">
+        Date de rendez-vous
+        <input type="date" class="grow" type="datetime-local" formControlName="date"/>
+      </label>
+      <select class="select select-bordered w-full max-w-xs">
+        <option disabled selected>Status</option>
+        <option value="in_consultation">En consultation</option>
+        <option value="waiting">En attente</option>
+      </select>
+      <div class="modal-action">
+          <button class="btn rounded-md" (click)="handleCloseModalClick()">Annuler</button>
+          <button class="btn btn-primary rounded-md" [disabled]="!editPatientForm.valid" (click)="editPatient()">Valider</button>      </div>
+    </div>
+  </form>
+</app-modal>
