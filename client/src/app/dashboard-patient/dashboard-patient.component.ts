@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Patient {
-  name: string;
-  status: string;
-}
+import { SocketPatientService } from '../services/socket.patient-services';
+import { Patient } from '../services/api.patient-services';
 
 @Component({
   selector: 'app-dashboard-patient',
@@ -15,17 +12,13 @@ interface Patient {
 })
 
 export class DashboardPatientComponent {
-  //TODO replace to database
-  patients: Patient[] = [
-    {
-      name: 'Cy Ganderton',
-      status: 'in_consultation'
-    },
-    {
-      name: 'Hart Hagerty',
-      status: 'waiting'
-    },
-  ];
+  patients: Patient[] = [];
+
+  constructor(private socketPatientService: SocketPatientService) {
+    this.socketPatientService.getPatients().subscribe(data => {
+      this.patients = data;
+    })
+  }
 
   getStatus(status: string) {
     switch (status) {

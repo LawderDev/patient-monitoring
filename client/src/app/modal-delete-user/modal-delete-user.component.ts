@@ -26,9 +26,8 @@ export class ModalDeleteUserComponent {
   }
 
   deletePatient() {
-    this.apiPatientServices.deletePatient(this.patientId).subscribe(data => {
-      console.log("success delete")
-      //TODO refresh data
+    this.apiPatientServices.deletePatient(this.patientId).subscribe(_ => {
+      this.handleCloseModalClick();
     })
 
   }

@@ -1,5 +1,19 @@
-const db = require("../models");
+const db = require('../models');
 const Patient = db.patients;
+
+
+// Définir une fonction pour émettre les patients triés
+const emitSortedPatients = (eventName, socketio) => {
+  Patient.findAll({ order: [['apointmentDate', 'ASC']] })
+    .then(data => {
+      socketio.emit(eventName, data);
+    })
+    .catch(err => {
+      console.error(`Failed to emit sorted patients for ${eventName}:`, err);
+    });
+};
+
+exports.emitSortedPatients = emitSortedPatients;
 
 exports.create = (req, res) => {
   if (!req.body.name) {
@@ -9,6 +23,8 @@ exports.create = (req, res) => {
     return;
   }
 
+  console.log("req.body", req.body)
+
   const patient = {
     name: req.body.name,
     apointmentDate: req.body.apointmentDate,
@@ -17,6 +33,7 @@ exports.create = (req, res) => {
 
   Patient.create(patient)
     .then(data => {
+      emitSortedPatients('updatedPatients', req.app.get('socketio'));
       res.send(data);
     })
     .catch(err => {
@@ -48,6 +65,7 @@ exports.update = (req, res) => {
     })
   .then(num => {
     if (num == 1) {
+      emitSortedPatients('updatedPatients', req.app.get('socketio'));
       res.send({
         message: "Patient was updated successfully."
       });
@@ -72,6 +90,7 @@ exports.delete = (req, res) => {
   })
     .then(num => {
       if (num == 1) {
+        emitSortedPatients('updatedPatients', req.app.get('socketio'));
         res.send({
           message: "Patient was deleted successfully!"
         });

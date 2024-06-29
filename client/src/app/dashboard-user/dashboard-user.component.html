@@ -31,8 +31,8 @@
           <td [ngSwitch]="patient.status" class="flex gap-2">
             <button *ngSwitchCase="'in_consultation'" class="btn btn-primary rounded-md" (click)="endConsultation(patient)">Terminer la consultation</button>
             <button *ngSwitchCase="'waiting'" class="btn btn-primary rounded-md" (click)="startConsultation(patient)">Démarrer la consultation</button>
-            <button class="btn btn-square" (click)="openDeleteModal(patient)"><img src="assets/images/edit.png" alt="edit" class="w-1/2 h-1/2" /></button>
-            <button class="btn btn-square" (click)="openEditModal(patient)"><img src="assets/images/delete.png" alt="delete" class="w-1/2 h-1/2" /></button>
+            <button class="btn btn-square" (click)="openEditModal(patient)"><img src="assets/images/edit.png" alt="edit" class="w-1/2 h-1/2" /></button>
+            <button class="btn btn-square" (click)="openDeleteModal(patient)"><img src="assets/images/delete.png" alt="delete" class="w-1/2 h-1/2" /></button>
           </td>
         </tr>
       </tbody>

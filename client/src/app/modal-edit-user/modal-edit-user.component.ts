@@ -44,9 +44,8 @@ export class ModalEditUserComponent {
   }
 
   editPatient() {
-    this.apiPatientServices.updatePatient(this.patientId, this.editPatientForm.value).subscribe(data => {
-      console.log("sucess edit")
-      //TODO refresh data
+    this.apiPatientServices.updatePatient(this.patientId, this.editPatientForm.value).subscribe(_ => {
+      this.handleCloseModalClick();
     })
   }
 }

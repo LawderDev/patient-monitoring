@@ -1,5 +1,8 @@
-const express = require("express");
-const cors = require("cors");
+const cors = require('cors');
+const express = require('express');
+const { Server } = require('socket.io');
+const { emitSortedPatients } = require('./app/controllers/patient.controller');
+const http = require('http');
 
 const app = express();
 
@@ -29,6 +32,20 @@ require("./app/routes/patient.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+const httpServer = new http.Server(app);
+const io = new Server(httpServer, { cors: { origin: '*' } });
+
+io.on('connection', (socket) => {
+  console.log('Un utilisateur est connecté');
+  emitSortedPatients('updatedPatients', io);
+  socket.on('disconnect', () => {
+    console.log('Un utilisateur est déconnecté');
+  });
 });
+
+
+httpServer.listen(PORT, () => {
+  console.log(`Server listen on port ${PORT}`);
+});
+
+app.set('socketio', io);

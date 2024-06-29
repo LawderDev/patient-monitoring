@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import {AbstractControl, ValidationErrors, ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';;
-import { EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { ViewChild } from '@angular/core';
 import { ApiPatientService } from '../services/api.patient-services';
 @Component({
   selector: 'app-modal-add-user',
@@ -26,7 +26,8 @@ export class ModalAddUserComponent {
     this.currentDateTime = now.toISOString().slice(0, 16);
     this.addPatientForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      date: new FormControl(this.currentDateTime, [Validators.required, this.futureDateValidator]),
+      apointmentDate: new FormControl(this.currentDateTime, [Validators.required, this.futureDateValidator]),
+      status: new FormControl('waiting', [Validators.required]),
     })
   }
 
@@ -35,10 +36,8 @@ export class ModalAddUserComponent {
   }
 
   addPatient() {
-    console.log(this.addPatientForm.value);
     this.apiPatientServices.addPatient(this.addPatientForm.value).subscribe(data => {
-      console.log("sucess added")
-      //TODO refresh data
+      this.handleCloseModalClick();
     });
 
   }
