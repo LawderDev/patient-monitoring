@@ -12,13 +12,18 @@ import { EventEmitter, ViewChild, ElementRef } from '@angular/core';
 export class ModalComponent {
   @Input() id: string = 'my_modal_1';
   @Input() noBtn: boolean = false;
+  @Output() onHandleClose = new EventEmitter();
   @ViewChild('modal') modalElement!: ElementRef;
 
   handleOpenClick() {
     this.modalElement.nativeElement.showModal();
   }
 
-  public handleCloseClick() {
+  emitCloseEvent() {
+    this.onHandleClose.emit();
+  }
+
+  handleCloseClick() {
     this.modalElement.nativeElement.close();
   }
 }

@@ -4,7 +4,7 @@
     <app-modal-add-user></app-modal-add-user>
   </div>
   <app-modal-delete-user #deleteModal [patientId]="selectedPatient.id" [patientName]="selectedPatient.name"></app-modal-delete-user>
-  <app-modal-edit-user #editModal [patientId]="selectedPatient.id" [patientName]="selectedPatient.name" [patientStatus]="selectedPatient.status"></app-modal-edit-user>
+  <app-modal-edit-user #editModal [patientId]="selectedPatient.id" [patientName]="selectedPatient.name" [patientDate]="selectedPatient.apointmentDate" [patientStatus]="selectedPatient.status"></app-modal-edit-user>
   <div class="border-[1px] rounded-md overflow-auto">
     <table class="table">
       <!-- head -->

@@ -3,6 +3,7 @@ import { ModalComponent } from '../modal/modal.component';
 import {AbstractControl, ValidationErrors, ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';;
 import { EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { ApiPatientService } from '../services/api.patient-services';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-modal-edit-user',
@@ -16,6 +17,7 @@ export class ModalEditUserComponent {
   currentDateTime: string;
   @ViewChild('modalRef') modalElement!: ModalComponent;
   @Input() patientName!: string;
+  @Input() patientDate!: string;
   @Input() patientId!: number;
   @Input() patientStatus!: string;
 
@@ -26,11 +28,10 @@ export class ModalEditUserComponent {
   }
 
   constructor(private apiPatientServices: ApiPatientService) {
-    const now = new Date();
-    this.currentDateTime = now.toISOString().slice(0, 16);
+    this.currentDateTime = format(new Date(), "yyyy-MM-dd'T'HH:mm");
     this.editPatientForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      date: new FormControl(this.currentDateTime, [Validators.required, this.futureDateValidator]),
+      apointmentDate: new FormControl(this.currentDateTime, [Validators.required, this.futureDateValidator]),
       status: new FormControl('', [Validators.required]),
     })
   }
@@ -40,6 +41,7 @@ export class ModalEditUserComponent {
   }
 
   handleOpenModalClick() {
+    this.editPatientForm.setValue({ name: this.patientName, apointmentDate: this.patientDate, status: this.patientStatus });
     this.modalElement.handleOpenClick();
   }
 

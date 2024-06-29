@@ -4,13 +4,13 @@
     <div class="flex flex-col gap-2">
       <label class="input input-bordered flex items-center gap-2 rounded-md">
         Nom
-        <input type="text" class="grow" placeholder="Nom" formControlName="name" />
+        <input type="text" class="grow" placeholder="Nom" formControlName="name" [value]="patientName" />
       </label>
       <label class="input input-bordered flex items-center gap-2 rounded-md">
         Date de rendez-vous
-        <input type="date" class="grow" type="datetime-local" formControlName="date"/>
+        <input type="date" class="grow" type="datetime-local" formControlName="apointmentDate" [value]="patientDate"/>
       </label>
-      <select class="select select-bordered w-full max-w-xs">
+      <select class="select select-bordered w-full max-w-xs" formControlName="status" [value]="patientStatus">
         <option disabled selected>Status</option>
         <option value="in_consultation">En consultation</option>
         <option value="waiting">En attente</option>

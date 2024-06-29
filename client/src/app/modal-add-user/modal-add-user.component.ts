@@ -3,6 +3,7 @@ import { ModalComponent } from '../modal/modal.component';
 import {AbstractControl, ValidationErrors, ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';;
 import { ViewChild } from '@angular/core';
 import { ApiPatientService } from '../services/api.patient-services';
+import { format } from 'date-fns';
 @Component({
   selector: 'app-modal-add-user',
   standalone: true,
@@ -22,8 +23,7 @@ export class ModalAddUserComponent {
   }
 
   constructor(private apiPatientServices: ApiPatientService) {
-    const now = new Date();
-    this.currentDateTime = now.toISOString().slice(0, 16);
+    this.currentDateTime = format(new Date(), "yyyy-MM-dd'T'HH:mm");
     this.addPatientForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       apointmentDate: new FormControl(this.currentDateTime, [Validators.required, this.futureDateValidator]),
@@ -32,6 +32,7 @@ export class ModalAddUserComponent {
   }
 
   handleCloseModalClick() {
+    this.addPatientForm.setValue({ name: '', apointmentDate: this.currentDateTime, status: 'waiting' });
     this.modalElement.handleCloseClick();
   }
 

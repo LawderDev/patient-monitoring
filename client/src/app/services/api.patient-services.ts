@@ -21,8 +21,6 @@ export class ApiPatientService {
             'http://localhost:8080/api/patients/findAllInApointmentDateOrder');
     }
     addPatient(patient: Patient) {
-      console.log("addPatient")
-      console.log(patient)
         return this.http.post(
             'http://localhost:8080/api/patients/', patient);
     }

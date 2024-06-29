@@ -1,64 +1,73 @@
 {
-  "hash": "8c67d083",
-  "configHash": "084de70d",
-  "lockfileHash": "d639cc74",
-  "browserHash": "4ca8fc69",
+  "hash": "ffef4513",
+  "configHash": "3faac87f",
+  "lockfileHash": "6b206a9b",
+  "browserHash": "d5e8c7d2",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "d24d8da9",
+      "fileHash": "e120ea69",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "a8fa39f3",
+      "fileHash": "63634c44",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "146e62fc",
+      "fileHash": "408a4a05",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "b9b7b4be",
+      "fileHash": "11744b84",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "08ac6b45",
+      "fileHash": "d5b045b3",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "660d43b5",
+      "fileHash": "5cb75a4a",
       "needsInterop": false
     },
     "ngx-socket-io": {
       "src": "../../../../../node_modules/ngx-socket-io/fesm2022/ngx-socket-io.mjs",
       "file": "ngx-socket-io.js",
-      "fileHash": "95919d59",
+      "fileHash": "4fa5c2b7",
+      "needsInterop": false
+    },
+    "date-fns": {
+      "src": "../../../../../node_modules/date-fns/index.mjs",
+      "file": "date-fns.js",
+      "fileHash": "94769502",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-H2IVCCF7": {
-      "file": "chunk-H2IVCCF7.js"
+    "chunk-L7AM2C4Z": {
+      "file": "chunk-L7AM2C4Z.js"
     },
-    "chunk-H3NHFVSS": {
-      "file": "chunk-H3NHFVSS.js"
+    "chunk-E6TGNKBL": {
+      "file": "chunk-E6TGNKBL.js"
     },
-    "chunk-Y65K44RF": {
-      "file": "chunk-Y65K44RF.js"
+    "chunk-FQ3IE3HQ": {
+      "file": "chunk-FQ3IE3HQ.js"
     },
-    "chunk-NGLNU2UL": {
-      "file": "chunk-NGLNU2UL.js"
+    "chunk-OU5I3LDF": {
+      "file": "chunk-OU5I3LDF.js"
+    },
+    "chunk-GLLL6ZVE": {
+      "file": "chunk-GLLL6ZVE.js"
     }
   }
 }
