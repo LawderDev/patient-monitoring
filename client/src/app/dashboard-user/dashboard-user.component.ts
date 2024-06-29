@@ -6,6 +6,8 @@ import { ModalEditUserComponent } from '../modal-edit-user/modal-edit-user.compo
 import { ApiPatientService } from '../services/api.patient-services';
 import { Patient } from '../services/api.patient-services';
 import { SocketPatientService } from '../services/socket.patient-services';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
 @Component({
   selector: 'app-dashboard-user',
@@ -57,5 +59,11 @@ export class DashboardUserComponent {
 
   endConsultation(patient: Patient) {
     this.apiPatientService.deletePatient(patient.id).subscribe()
+  }
+
+  formatDate(date: string) {
+    const newDate = new Date(date);
+    const newDateString = format(newDate, "PPpp", { locale: fr });
+    return newDateString;
   }
 }

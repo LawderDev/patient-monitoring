@@ -30,5 +30,4 @@ export class DashboardPatientComponent {
         return 'En attente';
     }
   }
-
 }
