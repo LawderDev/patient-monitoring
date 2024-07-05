@@ -3,7 +3,7 @@ This application facilitates patient management and real-time status monitoring 
 
 ## Running the Server
 - Navigate to the server directory and install dependencies with `npm install`.
-- Don't forget to set your database configuration in the file: "db.config.js"
+- Don't forget to set your database configuration in the file: "config/db.config.js"
 - Start the server with `node server.js`.
 - Open your web browser and go to `http://localhost:8080/`.
   
