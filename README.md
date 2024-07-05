@@ -2,13 +2,14 @@
 This application facilitates patient management and real-time status monitoring during consultations.
 
 ## Running the Server
-- Navigate to the server directory and install dependencies with npm install.
-- Start the server with node server.js.
+- Navigate to the server directory and install dependencies with `npm install`.
+- Don't forget to set your database configuration in the file: "db.config.js"
+- Start the server with `node server.js`.
 - Open your web browser and go to `http://localhost:8080/`.
   
 ## Running the Client
 - Navigate to the client directory and install dependencies with npm install.
-- Start the client server with ng serve.
+- Start the client server with `ng serve`.
 - Open your web browser and go to `http://localhost:4200/`.
 
 ### Client URLs:
