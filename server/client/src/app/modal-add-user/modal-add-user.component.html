@@ -1,0 +1,18 @@
+<app-modal id="add-user-modal" #modalRef (onHandleClose)="handleCloseModalClick()">
+  <form [formGroup]="addPatientForm">
+  <h3 class="text-lg font-bold mb-2">Ajouter un patient</h3>
+    <div class="flex flex-col gap-2">
+      <label class="input input-bordered flex items-center gap-2 rounded-md">
+        Nom
+        <input type="text" class="grow" placeholder="Nom" formControlName="name" />
+      </label>
+      <label class="input input-bordered flex items-center gap-2 rounded-md">
+        Date de rendez-vous
+        <input type="date" class="grow" type="datetime-local" formControlName="apointmentDate"/>
+      </label>
+      <div class="modal-action">
+          <button class="btn rounded-md" (click)="handleCloseModalClick()">Annuler</button>
+          <button class="btn btn-primary rounded-md" [disabled]="!addPatientForm.valid" (click)="addPatient()">Valider</button>      </div>
+    </div>
+  </form>
+</app-modal>

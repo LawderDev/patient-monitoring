@@ -1,0 +1,11 @@
+<div>
+  <button *ngIf="!noBtn" class="btn btn-primary rounded-md" (click)="handleOpenClick()">Ajouter un patient</button>
+  <dialog [id]="id" class="modal" #modal>
+    <div class="modal-box rounded-md">
+      <ng-content></ng-content>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button (click)="emitCloseEvent()">close</button>
+    </form>
+  </dialog>
+</div>
