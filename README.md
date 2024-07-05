@@ -5,7 +5,7 @@ This application facilitates patient management and real-time status monitoring 
 - Navigate to the server directory and install dependencies with npm install.
 - Start the server with node server.js.
 - Open your web browser and go to `http://localhost:8080/`.
-- 
+  
 ## Running the Client
 - Navigate to the client directory and install dependencies with npm install.
 - Start the client server with ng serve.
