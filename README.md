@@ -1,6 +1,12 @@
 # Patient Monitoring System
 This application facilitates patient management and real-time status monitoring during consultations.
 
+# Stack
+- Angular 17
+- Express.js
+- Postgres SQL
+- Tailiwind CSS with DaisyUi
+
 ## Running the Server
 - Navigate to the server directory and install dependencies with `npm install`.
 - Don't forget to set your database configuration in the file: "config/db.config.js"
